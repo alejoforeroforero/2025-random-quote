@@ -26,7 +26,7 @@ server {
     }
 
     location /api/ {
-        proxy_pass http://localhost:8095/;
+        proxy_pass http://localhost:8095;  # Remove the trailing slash
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
