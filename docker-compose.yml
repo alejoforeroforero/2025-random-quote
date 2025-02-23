@@ -1,24 +1,22 @@
-version: '3.8'
-
 services:
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "8081:80"  # Changed from 80:80 to avoid conflict
+      - "8094:80"
     depends_on:
       - backend
     environment:
-      - VITE_API_URL=http://your.domain.com/api  # Replace with your actual domain
+      - VITE_API_URL=https://quotes.alejoforero.com/api
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "8080:3000"  # Changed from 3000:3000 to avoid conflict
+      - "8095:3000"
     environment:
       - PORT=3000
       - NODE_ENV=production
-      - ALLOWED_ORIGINS=http://your.domain.com  # Replace with your actual domain
+      - ALLOWED_ORIGINS=https://quotes.alejoforero.com
