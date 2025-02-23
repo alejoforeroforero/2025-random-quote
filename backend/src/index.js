@@ -26,14 +26,17 @@ const corsOptions = {
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Routes
+// Routes - Option 1: Keep as is if you want /api prefix
 app.use('/api/quotes', quotesRouter);
+
+// OR Option 2: Remove /api prefix if you want direct access
+// app.use('/quotes', quotesRouter);
 
 // Database sync and server start
 sequelize.sync()
