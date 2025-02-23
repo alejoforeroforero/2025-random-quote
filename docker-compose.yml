@@ -6,19 +6,19 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8081:80"  # Changed from 80:80 to avoid conflict
     depends_on:
       - backend
     environment:
-      - VITE_API_URL=http://localhost:3000/api
+      - VITE_API_URL=http://your.domain.com/api  # Replace with your actual domain
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "8080:3000"  # Changed from 3000:3000 to avoid conflict
     environment:
       - PORT=3000
       - NODE_ENV=production
-      - ALLOWED_ORIGINS=http://localhost
+      - ALLOWED_ORIGINS=http://your.domain.com  # Replace with your actual domain
