@@ -8,7 +8,7 @@ services:
     depends_on:
       - backend
     environment:
-      - VITE_API_URL=https://quotes.alejoforero.com/api  # Verify HTTPS
+      - VITE_API_URL=https://quotes.alejoforero.com/api
 
   backend:
     build:
